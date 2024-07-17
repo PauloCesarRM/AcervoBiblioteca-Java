@@ -5,9 +5,8 @@ public class Livro extends ItemAcervo {
     private int paginas;
     private String edicao;
 
-    public Livro() {
-    }
-    public Livro(String editoraLivro, String isbn, int paginas, String edicao) {
+    public Livro(String titulo, String autor, int ano, String editoraLivro, String isbn, int paginas, String edicao) {
+        super(titulo, autor, ano);
         this.editoraLivro = editoraLivro;
         this.isbn = isbn;
         this.paginas = paginas;
@@ -48,10 +47,13 @@ public class Livro extends ItemAcervo {
 
     @Override
     public void imprimirFicha() {
-        super.imprimirFicha();
+        System.out.println("Título: " + getTitulo());
+        System.out.println("Autor: "+ getAutor());
+        System.out.println("Ano: " + getAno());
         System.out.println("Editora: " + editoraLivro);
         System.out.println("ISBN: " + isbn);
         System.out.println("Paginas: " + paginas);
         System.out.println("Edicao: " + edicao);
+        System.out.println("Emprestado: " + (isEmprestado() ? "Sim" : "Não"));
     }
 }
